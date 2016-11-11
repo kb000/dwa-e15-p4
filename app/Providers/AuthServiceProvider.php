@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Kb0\Vectography\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'Kb0\Vectography\Model' => 'Kb0\Vectography\Policies\ModelPolicy',
     ];
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Kb0\Vectography\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

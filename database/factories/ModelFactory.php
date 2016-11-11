@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Kb0\Vectography\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

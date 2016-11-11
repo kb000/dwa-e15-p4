@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Kb0\Vectography\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Kb0\Vectography\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Kb0\Vectography\Http\Controllers\Auth;
 
-use App\User;
+use Kb0\Vectography\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Kb0\Vectography\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

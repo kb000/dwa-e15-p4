@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Kb0\Vectography\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
