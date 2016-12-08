@@ -30,10 +30,6 @@ class CreateGraphicsTable extends Migration
             $table->text('description');
             # Base64 encoded SHA256.
             $table->string('auth_key', 43);
-
-            $key_seed = 'bananaphone';
-            $key_raw = hash('sha256' , $key_seed, true);
-            $key_txt = base64url_encode($key_raw);
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGraphiccontentsTable extends Migration
+class CreateGraphicContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -34,6 +34,7 @@ class CreateGraphiccontentsTable extends Migration
      */
     public function down()
     {
+        Log::info("Running create_graphic_contents_table->down()");
         Schema::drop('graphic_contents');
     }
 }
