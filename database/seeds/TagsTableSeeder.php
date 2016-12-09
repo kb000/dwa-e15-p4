@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Kb0\Vectography\Tag;
 
 class TagsTableSeeder extends Seeder
 {

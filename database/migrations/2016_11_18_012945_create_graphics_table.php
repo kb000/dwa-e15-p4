@@ -29,7 +29,7 @@ class CreateGraphicsTable extends Migration
             $table->string('title');
             $table->text('description');
             # Base64 encoded SHA256.
-            $table->string('auth_key', 43);
+            $table->string('authKey', 43);
         });
     }
 
