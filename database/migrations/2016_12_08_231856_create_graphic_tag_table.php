@@ -12,8 +12,20 @@ class CreateGraphicTagTable extends Migration
      * @return void
      */
     public function up()
-    {
-        //
+    {   
+        Schema::create('graphic_tag', function (Blueprint $table) {
+
+            $table->increments('id');
+            $table->timestamps();
+
+            # Make foreign key fields
+            $table->integer('graphic_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
+
+            # Make foreign keys
+            $table->foreign('graphic_id')->references('id')->on('graphics');
+            $table->foreign('tag_id')->references('id')->on('tags');
+        });
     }
 
     /**
@@ -23,6 +35,6 @@ class CreateGraphicTagTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('graphic_tag');
     }
 }

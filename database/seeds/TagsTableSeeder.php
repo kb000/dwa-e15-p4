@@ -12,7 +12,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['geometric','cat','animal','logo','flower'];
+        $data = ['geometric','rainbow','cat','logo','flower'];
 
         foreach($data as $tagName) {
             $tag = new Tag();

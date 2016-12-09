@@ -11,4 +11,10 @@ class Graphic extends Model
         # Define a one-to-many relationship.
         return $this->hasMany('Kb0\Vectography\GraphicContent');
     }
+
+    public function tags() {
+        # Graphic has many tags
+        # Define a many-to-many relationship.
+        return $this->belongsToMany('Kb0\Vectography\Tag')->withTimestamps();
+    }
 }
