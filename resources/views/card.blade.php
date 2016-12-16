@@ -28,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
   <h2 class="card__title">{{ $graphic->title }}</h2><span class="card__subtitle">{{ $graphic->subtitle }}</span>
   <p class="card__text">{{ $graphic->description }}</p>
   <div class="card__action-bar">
-    <a href="{{ '/graphics/' . $graphic->id . '/edit' }}"><button class="card__button">EDIT</button></a>
-    <a href="{{ '/graphics/' . $graphic->id . '/raw' }}"><button class="card__button">DOWNLOAD</button></a>
+    <a href="{{ '/graphics/edit/' . $graphic->id }}"><button class="card__button">EDIT</button></a>
+    <a href="{{ '/graphics/raw/' . $graphic->id . '.svg'}}"><button class="card__button">DOWNLOAD</button></a>
   </div>
 </div>

@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Graphic extends Model
 {
+
     public function contents() {
         # Graphic has many (past and present) GraphicContents
         # Define a one-to-many relationship.
         return $this->hasMany('Kb0\Vectography\GraphicContent');
+    }
+
+    public function currentContent() {
+        # Graphic has a single current GraphicContents
+        # Use the existing one-to-many relationship, but order and select the first.
+        return $this->contents()
+                    ->orderBy('created_at', 'desc');
     }
 
     public function tags() {
@@ -20,11 +28,7 @@ class Graphic extends Model
     }
 
     public function GetThumbnailDataUri() {
-        $current_content = $this->contents->first();
-        return "data:image/png;base64," . base64_encode($current_content->rasterData);
-    }
-
-    public function ScopeCurrentContent() {
-        return $this->contents->first();
+        $raster_data = $this->currentContent()->rasterData;
+        return "data:image/png;base64," . base64_encode($raster_data);
     }
 }
