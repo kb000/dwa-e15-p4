@@ -11,4 +11,8 @@ class GraphicContent extends Model
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('Kb0\Vectography\Graphic');
     }
+
+    public function scopeCurrent($query) {
+        return $query->orderBy('created_at')->limit('1');
+    }
 }

@@ -13,6 +13,12 @@ class GraphicsTableSeeder extends Seeder
     public function run()
     {
         $graphic = new Graphic();
+        $graphic->title = 'Blast';
+        $graphic->description = "Vector graphics are a blast.";
+        $graphic->authKey = $this->makeSeedAuthKey($graphic);
+        $graphic->save();
+
+        $graphic = new Graphic();
         $graphic->title = 'Insanity Wolf';
         $graphic->description = "It's a wolf. He is insane.";
         $graphic->authKey = $this->makeSeedAuthKey($graphic);
@@ -21,12 +27,6 @@ class GraphicsTableSeeder extends Seeder
         $graphic = new Graphic();
         $graphic->title = 'Nyan Cat';
         $graphic->description = "Pop tart. Rainbow. Cat. 'Nuff said.";
-        $graphic->authKey = $this->makeSeedAuthKey($graphic);
-        $graphic->save();
-
-        $graphic = new Graphic();
-        $graphic->title = 'Blast';
-        $graphic->description = "Vector graphics are a blast.";
         $graphic->authKey = $this->makeSeedAuthKey($graphic);
         $graphic->save();
     }

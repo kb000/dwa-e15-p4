@@ -24,11 +24,11 @@ DEALINGS IN THE SOFTWARE.
 
 <!-- Card -->
 <div class="card card--big">
-  <div style="background-image: url({{ $}})" class="card__image"></div>
+  <div style="background-image: url({{ $graphic->GetThumbnailDataUri() }})" class="card__image"></div>
   <h2 class="card__title">{{ $graphic->title }}</h2><span class="card__subtitle">{{ $graphic->subtitle }}</span>
   <p class="card__text">{{ $graphic->description }}</p>
   <div class="card__action-bar">
-    <a href="{{ url('/graphics/' + $graphic_id + '/edit') }}"><button class="card__button">EDIT</button></a>
-    <button class="card__button"></button>
+    <a href="{{ '/graphics/' . $graphic->id . '/edit' }}"><button class="card__button">EDIT</button></a>
+    <a href="{{ '/graphics/' . $graphic->id . '/raw' }}"><button class="card__button">DOWNLOAD</button></a>
   </div>
 </div>

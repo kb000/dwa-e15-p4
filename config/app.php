@@ -177,6 +177,7 @@ return [
         // Kb0\Vectography\Providers\BroadcastServiceProvider::class,
         Kb0\Vectography\Providers\EventServiceProvider::class,
         Kb0\Vectography\Providers\RouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -225,7 +226,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

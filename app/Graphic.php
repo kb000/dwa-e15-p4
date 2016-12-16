@@ -2,6 +2,7 @@
 
 namespace Kb0\Vectography;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Graphic extends Model
@@ -16,5 +17,14 @@ class Graphic extends Model
         # Graphic has many tags
         # Define a many-to-many relationship.
         return $this->belongsToMany('Kb0\Vectography\Tag')->withTimestamps();
+    }
+
+    public function GetThumbnailDataUri() {
+        $current_content = $this->contents->first();
+        return "data:image/png;base64," . base64_encode($current_content->rasterData);
+    }
+
+    public function ScopeCurrentContent() {
+        return $this->contents->first();
     }
 }

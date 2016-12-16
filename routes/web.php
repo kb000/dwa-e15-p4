@@ -1,5 +1,7 @@
 <?php
 
+use Kb0\Vectography\Graphic;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,5 @@
 */
 
 Route::get('/', function () {
-    return view('graphic.view');
-});
+    return view('graphic.view')->with('graphic', Graphic::with('contents')->first());
+})
