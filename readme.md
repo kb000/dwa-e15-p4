@@ -10,30 +10,30 @@ This site is published at [http://p4.dwa-e15.kb0.org/](http://p4.dwa-e15.kb0.org
 This site is demonstrated at [https://youtu.be/TODO](https://youtu.be/TODO)
 
 ## Site content
-The site is an open, social repository for vectorized graphics.
+The site is an open, social repository for vectorized graphics.  It uses a novel mechanism to allow 
+users to upload graphics but still maintain control over them, and obtain an 'edit' link to carry
+that control to other browsers or share it with others.
 
 The site consists of:
 * A gallery of existing, featured graphics.
 * Detail and download pages for graphics.
-* User account and profile creation.
-* Anonymous or user-owned upload of new graphics.
+* Anonymous upload and persistent ownership of new graphics.
 * Metadata editing for user-owned graphics.
+* Deletion of user-owned graphics.
+* Moderator account control over all graphics.
 
 Some possible extensions for this site:
-* Rendering of graphics into raster formats
-* Inline modification, validation, and preview of svg code
+* Tagging of graphics.
+* Rendering of graphics into raster formats.
+* Inline modification, validation, and preview of svg code.
 * Upvote/Downvote ratings
 * Viewership statistics
 * Iterations and history
   * GitHub integration
 
 Backend (php/laravel) package dependencies:
-  * ~~[badcow/loremipsum](https://packagist.org/packages/badcow/lorem-ipsum) For lorem ipsum text.~~
-  * ~~[fzaninotto/faker](https://packagist.org/packages/fzaninotto/faker) For randomized user profile content.~~
-  * ~~[yzalis/identicon](https://packagist.org/packages/yzalis/identicon) For generated user profile images.~~
-  
-Others of interest, but not used:
-  * ~~[redeyeventures/geopattern](https://packagist.org/packages/redeyeventures/geopattern) Seems promising for generated imagery.~~
+  * [enshrined/svg-sanitize](https://packagist.org/packages/enshrined/svg-sanitize) for sanitization of SVG.
+  * [jangobrick/php-svg](https://packagist.org/packages/jangobrick/php-svg) for rasterization of SVG.
 
-In the frontend, this site uses [bootstrap](http://getbootstrap.com/) and [jquery](http://jquery.com/).  ~~The CSS is
-all new, no templates were used.~~
+In the frontend, this site uses [bootstrap](http://getbootstrap.com/) and [jquery](http://jquery.com/).
+I made use of a card layout by Mattia Astorino from [codepen](http://codepen.io/MattiaAstorino/pen/VYWxXy).
