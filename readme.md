@@ -7,7 +7,7 @@ To be submitted as DWA (CSCI-E15) [Project 4](http://dwa15.com/Projects.../P4) 2
 
 This site is published at [http://p4.dwa-e15.kb0.org/](http://p4.dwa-e15.kb0.org/)
 
-This site is demonstrated at [https://youtu.be/TODO](https://youtu.be/TODO)
+This site is demonstrated at [https://youtu.be/ZxU8_WaYxGA](https://youtu.be/ZxU8_WaYxGA)
 
 ## Site content
 The site is an open, social repository for vectorized graphics.  It uses a novel mechanism to allow 
