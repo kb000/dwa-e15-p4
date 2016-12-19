@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Kb0\Vectography\Graphic;
+use function Kb0\Vectography\base64url_encode;
 
 class GraphicsTableSeeder extends Seeder
 {

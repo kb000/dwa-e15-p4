@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0368effc240b527bfa0fb18ef63ab49f",
-    "content-hash": "5e1e6e9b0b9fa162f776d05516a32d06",
+    "hash": "12f646f748b3aaf896124023e364d3ef",
+    "content-hash": "8b56c19ebd0ef0d966c6266ae8de69a6",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -338,6 +338,45 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
+        },
+        {
+            "name": "jangobrick/php-svg",
+            "version": "v0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JangoBrick/php-svg.git",
+                "reference": "ce162b648d58234b90647306c632c5e19ecf3b61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JangoBrick/php-svg/zipball/ce162b648d58234b90647306c632c5e19ecf3b61",
+                "reference": "ce162b648d58234b90647306c632c5e19ecf3b61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JangoBrick\\SVG\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JangoBrick"
+                }
+            ],
+            "description": "Read, edit, write, and render SVG files with PHP",
+            "homepage": "https://github.com/JangoBrick/php-svg",
+            "keywords": [
+                "svg"
+            ],
+            "time": "2016-12-12 14:27:05"
         },
         {
             "name": "jeremeamia/SuperClosure",

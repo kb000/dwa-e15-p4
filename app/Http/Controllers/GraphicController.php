@@ -5,6 +5,7 @@ namespace Kb0\Vectography\Http\Controllers;
 use Kb0\Vectography\Graphic;
 use Kb0\Vectography\GraphicContent;
 use enshrined\svgSanitize\Sanitizer;
+use JangoBrick\SVG\SVGImage;
 use \Session;
 use \Validator;
 use \Request;
@@ -51,7 +52,7 @@ class GraphicController extends Controller
 
     function edit($graphic_id) {
         if ($graphic_id == 0) {
-            return editNew();
+            return $this->editNew();
         }
 
         $graphic = Graphic::id($graphic_id)->first();
@@ -115,13 +116,21 @@ class GraphicController extends Controller
             $graphic->authKey = Graphic::makeAuthKey($graphic);
             $graphic->save();
 
+            $svgImage = SVGImage::fromString($cleanSVG);
+            $raster_default_height = 256;
+            $raster_default_width = 256;
+            $rasterResource = $svgImage->toRasterImage($raster_default_height, $raster_default_width);
+            ob_start();
+            imagepng($rasterResource);
+            $rasterData = ob_get_contents();
+            ob_end_clean();
             $graphicContent = new GraphicContent();
             $graphicContent->data = $cleanSVG;
-            $graphicContent->rasterData = "TODO: Rasterize.";
+            $graphicContent->rasterData = $rasterData;
             $graphicContent->graphic_id = $graphic->id;
             $graphicContent->save();
 
-            return redirect()->route('graphics.show',['graphic_id'=>$graphic->id]);
+            return "done";//redirect()->route('graphics.show',['graphic_id'=>$graphic->id]);
         }
     }
 }
