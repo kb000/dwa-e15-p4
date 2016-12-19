@@ -15,9 +15,13 @@ use Kb0\Vectography\GraphicController;
 
 Route::get('/', 'GraphicController@index')->name('graphics.index');
 
+Route::get('/graphics/edit/{graphic_id}', 'GraphicController@edit')->name('graphics.edit');
+
+Route::get('/graphics/edit/', 'GraphicController@editNew')->name('graphics.editNew');
+
 Route::get('/graphics/{graphic_id}', 'GraphicController@show')->name('graphics.show');
 
-Route::get('/graphics/edit/{graphic_id}', 'GraphicController@edit')->name('graphics.edit');
+Route::post('/graphics/', 'GraphicController@store')->name('graphics.store');
 
 Route::get('/g/{graphic_id}.svg', 'GraphicController@raw')->name('graphics.raw');
 

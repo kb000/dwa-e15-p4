@@ -3,6 +3,11 @@
 namespace Kb0\Vectography\Http\Controllers;
 
 use Kb0\Vectography\Graphic;
+use Kb0\Vectography\GraphicContent;
+use enshrined\svgSanitize\Sanitizer;
+use \Session;
+use \Validator;
+use \Request;
 
 class GraphicController extends Controller
 {
@@ -19,13 +24,43 @@ class GraphicController extends Controller
         return view('graphic.view')->with('graphic', $graphic);
     }
 
+
+    function editNew() {
+        
+        $validator = Validator::make(Request::instance()->all(), [
+                'dup' => 'Integer|min:0',
+            ]);
+
+        $validator->validate();
+        
+        if (Request::has('dup')) {
+            $graphic_id = Request::input('dup');
+            
+            $graphic = Graphic::id($graphic_id)->first();
+
+            $this->flashGraphicAsOld($graphic);
+        }
+        return view('graphic.edit');
+    }
+
+    function flashGraphicAsOld(Graphic $graphic) {
+        Session::flash('title', $graphic->title);
+        Session::flash('description', $graphic->description);
+        Session::flash('svgText', $graphic->currentContent()->data);
+    }
+
     function edit($graphic_id) {
-        $graphic = Graphic::where('id','=',$graphic_id)->first();
+        if ($graphic_id == 0) {
+            return editNew();
+        }
+
+        $graphic = Graphic::id($graphic_id)->first();
         if(!$graphic) {
             abort(404); 
         }
         // TODO: Check user id or auth cookie for editing this graphic.
-        return view('graphic.edit')->with('graphic', $graphic);
+        $this->flashGraphicAsOld($graphic);
+        return view('graphic.edit')->with('graphic_id', $graphic_id);
     }
 
     function raw($graphic_id) {
@@ -47,5 +82,46 @@ class GraphicController extends Controller
             abort(404); 
         }
         return $content->data;
+    }
+
+    
+    function store() {
+        $validator = Validator::make(
+            Request::instance()->all(), [
+                'title' => 'Required',
+                'svgText' => 'Required',
+            ]);
+
+        $validator->validate();
+
+        if (Request::has('svgText')) {
+            // Create a new sanitizer instance
+            $sanitizer = new Sanitizer();
+
+            // Load the dirty svg
+            $dirtySVG = Request::input('svgText');
+        
+            // Pass it to the sanitizer and get it back clean
+            $cleanSVG = $sanitizer->sanitize($dirtySVG);
+
+            if (!$cleanSVG) {
+                return back()->withInput()
+                             ->withErrors(['Invalid SVG input.']);;
+            }
+            
+            $graphic = new Graphic();
+            $graphic->title = Request::input('title');
+            $graphic->description = Request::input('description','');
+            $graphic->authKey = Graphic::makeAuthKey($graphic);
+            $graphic->save();
+
+            $graphicContent = new GraphicContent();
+            $graphicContent->data = $cleanSVG;
+            $graphicContent->rasterData = "TODO: Rasterize.";
+            $graphicContent->graphic_id = $graphic->id;
+            $graphicContent->save();
+
+            return redirect()->route('graphics.show',['graphic_id'=>$graphic->id]);
+        }
     }
 }

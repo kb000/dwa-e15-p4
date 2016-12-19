@@ -41,7 +41,7 @@ DEALINGS IN THE SOFTWARE.
     @if(Ownership::isOwned($graphic))
     <a href="{{ '/graphics/edit/' . $graphic->id }}"><button title="Edit info or make a new version." class="card__button">EDIT</button></a>
     @else
-    <a href="{{ '/graphics/edit/?dup=' . $graphic->id }}"><button title="Edit a copy" class="card__button">FORK</button></a>
+    <a href="{{ '/graphics/edit/0?dup=' . $graphic->id }}"><button title="Edit a copy" class="card__button">FORK</button></a>
     {{-- @if(Auth::check())
     <a href="{{ '/graphics/CHOWN/' . $graphic->id }}"><button title="Acquire ownership" class="card__button">CHOWN</button></a>
     @endif --}}
