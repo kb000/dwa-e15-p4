@@ -2,16 +2,10 @@
 
 namespace Kb0\Vectography\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Kb0\Vectography\Graphic;
 
-class GraphicController extends BaseController
+class GraphicController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     function index() {
         $graphics = Graphic::all();
         return view('graphic.index')->with('graphics', $graphics);

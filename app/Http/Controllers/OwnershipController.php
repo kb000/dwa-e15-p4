@@ -2,19 +2,13 @@
 
 namespace Kb0\Vectography\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Kb0\Vectography\Graphic;
 use Request;
 use Response;
 use Cookie;
 
-class OwnershipController extends BaseController
+class OwnershipController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     const AuthCookieName = 'al';
     const AuthRequstParameterName = 'k';
 

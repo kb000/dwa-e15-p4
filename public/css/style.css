@@ -40,34 +40,42 @@ header h1 {
 .content-wrapper > .content { 
     width: 100%;
     overflow-x: auto;
+    overflow-y: visible;
     display:                 flex;
     display:                 -webkit-flex; /* Safari 8 */
     flex-wrap:               wrap;
     -webkit-flex-wrap:       wrap;         /* Safari 8 */
     justify-content:         center;
     -webkit-justify-content: center;       /* Safari 8 */
+    padding-bottom: 45px;
+}
+
+.footer {
+    background: rgba(0,0,0,0);
 }
 
 .form-group {
     padding-bottom: .5em;
 }
 
-.user-property .label {
-    color: #0B2877;
-    text-align: left;
-    font-size-adjust: 5;
-    font-weight: bold;
-}
-
-.user-sheet-container {
-    float: left;
-    margin: 1em;
-    max-width: 25em;
-}
-
 .avatar {
     margin-left: auto;
     margin-right: auto;
+}
+
+footer {
+    display:                 flex;
+    display:                 -webkit-flex; /* Safari 8 */
+    flex-wrap:               wrap;
+    -webkit-flex-wrap:       wrap;         /* Safari 8 */
+    flex-direction:          row;
+    justify-content:         center;
+    -webkit-justify-content: center;       /* Safari 8 */
+}
+
+.footer-wrapper {
+    margin: 5px 0 5px;
+    padding: 0 0 1em;
 }
 
 /* Responsive css for medium screens */

@@ -25,7 +25,7 @@
     </section>
 
     <footer>
-        &copy; {{ date('Y') }} Kevin Burek
+        @yield('footer')
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

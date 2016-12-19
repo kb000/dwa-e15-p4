@@ -25,6 +25,14 @@ Route::get('/g/{graphic_id}/{version_id}.svg', 'GraphicController@raw_with_versi
 
 Route::get('/chown/{graphic_id}', 'OwnershipController@storeById')->name('ownership.storeById');
 
+Route::post('/login', "Auth\LoginController@login")->name('login.login');
+
+Route::post('/logout', "Auth\LoginController@logout")->name('login.logout');
+
 Route::get('card', function () {
     return view('card')->with('graphic', Graphic::first());
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

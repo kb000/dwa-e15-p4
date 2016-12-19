@@ -38,11 +38,14 @@ DEALINGS IN THE SOFTWARE.
     <input class="graphic-id" type="hidden" value="{{ $graphic->id }}" />
   </div>
   <div class="card__action-bar">
-    @if(OwnershipController::isOwned($graphic))
-    <a href="{{ '/graphics/edit/' . $graphic->id }}"><button class="card__button">EDIT</button></a>
+    @if(Ownership::isOwned($graphic))
+    <a href="{{ '/graphics/edit/' . $graphic->id }}"><button title="Edit info or make a new version." class="card__button">EDIT</button></a>
     @else
-    <a href="{{ '/graphics/edit/?dup=' . $graphic->id }}"><button class="card__button">FORK</button></a>
+    <a href="{{ '/graphics/edit/?dup=' . $graphic->id }}"><button title="Edit a copy" class="card__button">FORK</button></a>
+    {{-- @if(Auth::check())
+    <a href="{{ '/graphics/CHOWN/' . $graphic->id }}"><button title="Acquire ownership" class="card__button">CHOWN</button></a>
+    @endif --}}
     @endif
-    <a href="{{ '/g/' . $graphic->id . '.svg'}}"><button class="card__button">DOWNLOAD</button></a>
+    <a href="{{ '/g/' . $graphic->id . '.svg'}}"><button title="Download" class="card__button">DOWNLOAD</button></a>
   </div>
 </div>
