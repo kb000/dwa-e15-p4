@@ -18,7 +18,8 @@ class Graphic extends Model
         # Graphic has a single current GraphicContents
         # Use the existing one-to-many relationship, but order and select the first.
         return $this->contents()
-                    ->orderBy('created_at', 'desc');
+                    ->orderBy('created_at', 'desc')
+                    ->first();
     }
 
     public function tags() {

@@ -35,7 +35,7 @@ class GraphicController extends BaseController
         if(!$graphic) {
             abort(404); 
         }
-        return $graphic->currentContent->first()->data;
+        return $graphic->currentContent()->data;
     }
 
     function raw_with_version($graphic_id, $version_id) {

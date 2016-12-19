@@ -1,3 +1,9 @@
+{{--
+    Graphic card view.
+    @param $graphic Kb0\Vectography\Graphic model object.
+    @param $cardSize 'full'|'big'|'medium'|'small'
+--}}
+
 {{-- 
 Copyright (c) 2015 - Mattia Astorino - http://codepen.io/MattiaAstorino/pen/VYWxXy
 
@@ -23,12 +29,14 @@ DEALINGS IN THE SOFTWARE.
 --}}
 
 <!-- Card -->
-<div class="card card--big">
-  <div style="background-image: url({{ $graphic->GetThumbnailDataUri() }})" class="card__image"></div>
-  <h2 class="card__title">{{ $graphic->title }}</h2><span class="card__subtitle">{{ $graphic->subtitle }}</span>
-  <p class="card__text">{{ $graphic->description }}</p>
+<div class="card card--{{ $cardSize }}">
+  <div class="card__content">
+    <div class="card__image" style="background-image: url({{ $graphic->GetThumbnailDataUri() }})"></div>
+    <h2 class="card__title">{{ $graphic->title }}</h2><span class="card__subtitle">{{ $graphic->subtitle }}</span>
+    <p class="card__text">{{ $graphic->description }}</p>
+  </div>
   <div class="card__action-bar">
     <a href="{{ '/graphics/edit/' . $graphic->id }}"><button class="card__button">EDIT</button></a>
-    <a href="{{ '/graphics/raw/' . $graphic->id . '.svg'}}"><button class="card__button">DOWNLOAD</button></a>
+    <a href="{{ '/g/' . $graphic->id . '.svg'}}"><button class="card__button">DOWNLOAD</button></a>
   </div>
 </div>

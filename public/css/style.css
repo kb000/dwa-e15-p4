@@ -1,0 +1,98 @@
+/*
+ * Stylesheet for DWA E-15 project 2
+ */
+
+
+/* Color scheme: http://paletton.com/palette.php?uid=53N0i0kN9LJ8HUmo6P0-qmdppbG */
+
+
+/* Note: Default styles are for mobile first.
+         Responsive styling for larger screens follows. */
+
+body {
+    line-height: 1.7em;
+    color: #121E3F;
+    font-size: 13px;
+}
+
+h1,
+h2,
+h3 {
+    color: #0B2877;
+}
+
+header {
+    padding-top: .5em;
+}
+
+header img {
+    margin: auto;
+}
+
+header h1 {
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+.content-wrapper {
+    width: 100vw;
+}
+
+.content { 
+    width: 100%;
+    overflow-x: auto;
+}
+
+.form-group {
+    padding-bottom: .5em;
+}
+
+.user-property .label {
+    color: #0B2877;
+    text-align: left;
+    font-size-adjust: 5;
+    font-weight: bold;
+}
+
+.user-sheet-container {
+    float: left;
+    margin: 1em;
+    max-width: 25em;
+}
+
+.avatar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive css for medium screens */
+
+@media (min-width: 48em) {
+    .content {
+        padding: 1em;
+        font-size: 16px;
+    }
+        
+    .content-sheets { 
+        margin-left: 2em;
+    }
+
+    .password-panel {
+        padding: 2em;
+        width: 60%;
+    }
+}
+
+
+/* Responsive css for large screens */
+
+@media (min-width: 78em) {
+
+    .content-sheets { 
+        margin-left: 8em;
+    }
+
+}

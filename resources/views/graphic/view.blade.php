@@ -9,9 +9,5 @@
 @endsection
 
 @section('content')
-<div class='content-sheets'>
-    <div class='user-sheet-container'>
-          @include('card', array('graphic'=>$graphic))
-    </div>
-</div>
+@include('card', array('graphic'=>$graphic,'cardSize'=>'full'))
 @stop
