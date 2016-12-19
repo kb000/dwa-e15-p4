@@ -42,10 +42,18 @@ DEALINGS IN THE SOFTWARE.
     <a href="{{ '/graphics/edit/' . $graphic->id }}"><button title="Edit info or make a new version." class="card__button">EDIT</button></a>
     @else
     <a href="{{ '/graphics/edit/0?dup=' . $graphic->id }}"><button title="Edit a copy" class="card__button">FORK</button></a>
-    {{-- @if(Auth::check())
-    <a href="{{ '/graphics/CHOWN/' . $graphic->id }}"><button title="Acquire ownership" class="card__button">CHOWN</button></a>
-    @endif --}}
+    @if(Auth::check())
+    <a href="{{ '/graphics/chown/' . $graphic->id }}"><button title="Acquire ownership" class="card__button">CHOWN</button></a>
+    @endif
     @endif
     <a href="{{ '/g/' . $graphic->id . '.svg'}}"><button title="Download" class="card__button">DOWNLOAD</button></a>
+    @if(Ownership::isOwned($graphic) && (strpos($cardSize, 'thumbnail') == false))
+      <form action="{{ '/graphics/' . $graphic->id }}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="hidden" name="graphic_id" id="graphic_id" value="{{ $graphic->id }}"></input>
+        <button title="Delete" class="card__button" onclick="form.submit()">DELETE</button>
+      </form>
+    @endif
   </div>
 </div>

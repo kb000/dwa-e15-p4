@@ -38,7 +38,8 @@ class GraphicController extends Controller
             $graphic_id = Request::input('dup');
             
             $graphic = Graphic::id($graphic_id)->first();
-
+            $ownershipController = new OwnershipController();
+            $ownershipController->store($graphic);
             $this->flashGraphicAsOld($graphic);
         }
         return view('graphic.edit');
@@ -107,7 +108,7 @@ class GraphicController extends Controller
 
             if (!$cleanSVG) {
                 return back()->withInput()
-                             ->withErrors(['Invalid SVG input.']);;
+                             ->withErrors(['Invalid SVG input.']);
             }
             
             $graphic = new Graphic();
@@ -130,7 +131,31 @@ class GraphicController extends Controller
             $graphicContent->graphic_id = $graphic->id;
             $graphicContent->save();
 
-            return "done";//redirect()->route('graphics.show',['graphic_id'=>$graphic->id]);
+            return redirect()->route('graphics.show',['graphic_id'=>$graphic->id]);
         }
+    }
+
+        
+    function destroy($graphic_id) {
+        $validator = Validator::make(
+            Request::instance()->all(), [
+                'graphic_id' => 'Required|integer|in:'.$graphic_id,
+            ]);
+
+        $validator->validate();
+
+        $graphic = Graphic::id($graphic_id)->first();
+        if(!$graphic) {
+            abort(403); 
+        }
+
+        $contents = $graphic->contents();
+
+        $contents->delete();
+        $graphic->tags()->detach();
+        $graphic->delete();
+
+        Session::flash('messages',['Deleted graphic with id ['.$graphic->id.']']);
+        return redirect()->route('graphics.index');
     }
 }

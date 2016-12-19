@@ -1,7 +1,7 @@
 @if(Auth::check())
 <form action="/logout" method="post">
     {{ csrf_field() }}
-    <submit type="submit" class="btn btn-default">log out</button>
+    <button type="submit" class="btn btn-default" onclick="form.submit()">log out</button>
 @else
 <form class="form-inline" action="/login" method="post">
     {{ csrf_field() }}

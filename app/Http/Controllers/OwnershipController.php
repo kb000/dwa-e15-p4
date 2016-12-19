@@ -3,6 +3,7 @@
 namespace Kb0\Vectography\Http\Controllers;
 
 use Kb0\Vectography\Graphic;
+use Session;
 use Request;
 use Response;
 use Cookie;
@@ -48,10 +49,10 @@ class OwnershipController extends Controller
             // $cookie = Cookie::forever(OwnershipController::AuthCookieName, $outgoingCookie);
             // Cookie::queue($cookie);            
             setcookie(OwnershipController::AuthCookieName, $outgoingCookie, 0, '/');
-            dump("Took ownership of Graphic [".$graphic->id."] with auth token [".$graphic->authKey."] ");
-            /// dump($cookie);
+            Session::flash('messages',["Took ownership of Graphic [".$graphic->id."]."]);
+            return back();
         } else {
-            dump("Took ownership of nothing :(");
+            return back()->withErrors(["Failed to take ownership."]);
         }
     }
     
@@ -75,9 +76,6 @@ class OwnershipController extends Controller
         # Check ownership auth list in cookie.
         $incomingCookie = null;
         $incomingCookie = Request::cookie(OwnershipController::AuthCookieName);
-        if ($incomingCookie) {
-            dump ($incomingCookie);
-        }
         if (array_key_exists(OwnershipController::AuthCookieName, $_COOKIE)) {
             $incomingCookie = $_COOKIE[OwnershipController::AuthCookieName];
         }
