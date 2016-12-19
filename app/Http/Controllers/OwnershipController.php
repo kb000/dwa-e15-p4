@@ -6,13 +6,14 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Request;
 
 class OwnershipController extends BaseController
 {
-    private static string AuthCookieName = 'a.l';
-    private static string AuthRequstParameterName = 'k'
-
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    const AuthCookieName = 'a.l';
+    const AuthRequstParameterName = 'k';
 
     /**
      *  Stores an authorization key for the specified graphic to the user's ownership authorization list.
