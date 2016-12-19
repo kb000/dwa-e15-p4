@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Graphic extends Model
 {
+    public function scopeId($query, $graphic_id) {
+        return $query->where('id','=',$graphic_id);
+    }
 
     public function contents() {
         # Graphic has many (past and present) GraphicContents

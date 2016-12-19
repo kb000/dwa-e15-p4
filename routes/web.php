@@ -23,6 +23,8 @@ Route::get('/g/{graphic_id}.svg', 'GraphicController@raw')->name('graphics.raw')
 
 Route::get('/g/{graphic_id}/{version_id}.svg', 'GraphicController@raw_with_version')->name('graphics.raw_with_version');
 
+Route::get('/chown/{graphic_id}', 'OwnershipController@storeById')->name('ownership.storeById');
+
 Route::get('card', function () {
     return view('card')->with('graphic', Graphic::first());
 });
