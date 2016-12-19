@@ -5,9 +5,11 @@
 @endsection
 
 @section('title')
-    Vectography : {{-- TODO: Noscript? --}} {{ $graphic->title }}
+    Vectography
 @endsection
 
 @section('content')
-    @include('card', array('graphic'=>$graphic,'cardSize'=>'full'))
+    @foreach($graphics as $graphic)
+        @include('card', array('graphic'=>$graphic,'cardSize'=>'big thumbnail'))
+    @endforeach
 @stop

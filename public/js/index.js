@@ -3,7 +3,8 @@
  //
  
  $( document ).ready(function() {
-            // $('#foo_id').change(function() {
-            //    $('#bar_id').val($(this).val());
-            //});
+            $('.card.thumbnail > .content').click(function() {
+                var graphic_id = $(this).find('input.graphic-id').first().val();
+                window.location.href = "/graphics/" + graphic_id;
+            });
         });

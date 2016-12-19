@@ -1,10 +1,6 @@
 /*
- * Stylesheet for DWA E-15 project 2
+ * Stylesheet for DWA E-15 project 4
  */
-
-
-/* Color scheme: http://paletton.com/palette.php?uid=53N0i0kN9LJ8HUmo6P0-qmdppbG */
-
 
 /* Note: Default styles are for mobile first.
          Responsive styling for larger screens follows. */
@@ -41,9 +37,15 @@ header h1 {
     width: 100vw;
 }
 
-.content { 
+.content-wrapper > .content { 
     width: 100%;
     overflow-x: auto;
+    display:                 flex;
+    display:                 -webkit-flex; /* Safari 8 */
+    flex-wrap:               wrap;
+    -webkit-flex-wrap:       wrap;         /* Safari 8 */
+    justify-content:         center;
+    -webkit-justify-content: center;       /* Safari 8 */
 }
 
 .form-group {

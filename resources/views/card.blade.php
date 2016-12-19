@@ -30,10 +30,12 @@ DEALINGS IN THE SOFTWARE.
 
 <!-- Card -->
 <div class="card card--{{ $cardSize }}">
-  <div class="card__content">
+  <div class="card__content content">
     <div class="card__image" style="background-image: url({{ $graphic->GetThumbnailDataUri() }})"></div>
-    <h2 class="card__title">{{ $graphic->title }}</h2><span class="card__subtitle">{{ $graphic->subtitle }}</span>
+    <h2 class="card__title"><a href="{{ '/graphics/'. $graphic->id }}"/>{{ $graphic->title }}</a></h2>
+    <span class="card__subtitle">{{ $graphic->subtitle }}</span>
     <p class="card__text">{{ $graphic->description }}</p>
+    <input class="graphic-id" type="hidden" value="{{ $graphic->id }}" />
   </div>
   <div class="card__action-bar">
     <a href="{{ '/graphics/edit/' . $graphic->id }}"><button class="card__button">EDIT</button></a>

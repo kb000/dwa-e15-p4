@@ -12,6 +12,11 @@ class GraphicController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    function index() {
+        $graphics = Graphic::all();
+        return view('graphic.index')->with('graphics', $graphics);
+    }
+
     function show($graphic_id) {
         $graphic = Graphic::where('id','=',$graphic_id)->first();
         if(!$graphic) {
@@ -19,7 +24,6 @@ class GraphicController extends BaseController
         }
         return view('graphic.view')->with('graphic', $graphic);
     }
-
 
     function edit($graphic_id) {
         $graphic = Graphic::where('id','=',$graphic_id)->first();

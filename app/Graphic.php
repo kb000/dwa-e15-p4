@@ -29,7 +29,12 @@ class Graphic extends Model
     }
 
     public function GetThumbnailDataUri() {
-        $raster_data = $this->currentContent()->rasterData;
-        return "data:image/png;base64," . base64_encode($raster_data);
+        $current_content = $this->currentContent();
+        if ($current_content) {
+            $raster_data = $current_content->rasterData;
+            return "data:image/png;base64," . base64_encode($raster_data);
+        } else {
+            return "/img/no-image-placeholder.png";
+        }
     }
 }
